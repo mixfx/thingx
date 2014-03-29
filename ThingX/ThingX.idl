@@ -1,0 +1,45 @@
+// ThingX.idl : IDL source for ThingX
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ThingX.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(1F521251-26F8-46E7-8FB8-E68BB8044E4F),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ILEI : IDispatch{
+	[id(1)] HRESULT GetContent([in] LONG a, [in] LONG b, [out,retval] LONG* o);
+	[id(2)] HRESULT test([in] LONG a, [out,retval] LONG* b);
+};
+[
+	uuid(D3908C3E-D247-488C-AC81-66DEC1AD3D02),
+	version(1.0),
+]
+library ThingXLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(E91B9C58-EBAA-473F-B0E8-6DB034088662)		
+	]
+	dispinterface _ILEIEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(8639CB56-1169-4443-AAB8-436ACF851A2E)		
+	]
+	coclass LEI
+	{
+		[default] interface ILEI;
+		[default, source] dispinterface _ILEIEvents;
+	};
+};
+

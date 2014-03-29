@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {8639CB56-1169-4443-AAB8-436ACF851A2E} = s 'LEI Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{D3908C3E-D247-488C-AC81-66DEC1AD3D02}'
+			Version = s '1.0'
+		}
+	}
+}
